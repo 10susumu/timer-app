@@ -1,0 +1,17 @@
+<div class="main">
+  <h1>アラーム</h1>
+  <h2>
+  <div class="now-time">
+  <span id="now-time"></span>
+  </div>
+  </h2>
+</div>
+<div class="set-time">
+<% @timer.each do |timer| %>
+  <div>
+    <%= timer.name %>
+    <%= timer.time.strftime("%H:%M") %>
+  </div>
+<% end %>
+</div>
+  <%= link_to "新規アラームを作成", new_timer_path, class: "new-btn" %>
