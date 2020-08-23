@@ -1,10 +1,13 @@
+<div class="">
 <h1>new</h1>
 <%= form_with model: @timer, url: timer_index_path, local: true do |f| %>
 <div>
   <%= f.text_field :name, value: "新規アラーム", maxlength: "16"%>
 </div>
 <div>
-  <%= f.text_field :time, value: "00:00", maxlength: "5" %>
+  <%= f.label :time %>
+  <%= f.text_field :hour, value: "00", maxlength: "2" %>
+  <%= f.text_field :minutes, value: "00", maxlength: "2" %>
 </div>
 <div>
   <%= f.text_field :wday_id, value: "1" %>
@@ -16,7 +19,7 @@
   <%= f.text_field :sound_id, value: "1" %>
 </div>
 <div>
-  <%= f.submit "作成" %>
+  <%= f.submit "保存" %>
 </div>
 <% end %>
-<%= link_to "トップ", root_path, class: "new-btn" %>
+<%= link_to "キャンセル", root_path, class: "new-btn" %>

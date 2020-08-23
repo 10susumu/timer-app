@@ -56,3 +56,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rename'
 gem 'rails-i18n'
 gem 'audiojs-rails'
+gem 'bootstrap', '~> 5.0.0.alpha1'
+gem 'jquery-rails'
+gem 'pry-rails'

@@ -1,17 +1,37 @@
-<div class="main">
-  <h1>アラーム</h1>
-  <h2>
+<body>
+<header>
+<div class="timer-header">
   <div class="now-time">
+  <div>アラーム</div>
   <span id="now-time"></span>
   </div>
-  </h2>
+  <div class="new-alarm">
+<%= link_to "+", new_timer_path, class: "new-btn" %>
+  </div>
 </div>
-<div class="set-time">
-<% @timer.each do |timer| %>
-  <div>
+</header>
+
+<div class="timer-main">
+<div class="set-times">
+  <% @timer.each do |timer| %>
+    <div class="set-time<%=  timer.id %>"
+      value=<%= timer.time.strftime("%H:%M") %>
+    >
     <%= timer.name %>
     <%= timer.time.strftime("%H:%M") %>
-  </div>
-<% end %>
+
+    </div>
+
+  <% end %>
 </div>
-  <%= link_to "新規アラームを作成", new_timer_path, class: "new-btn" %>
+</div>
+</body>
+
+    <%# <div class="io-radio"> %>
+    <%# <%= form_with(model: timer, local: true) do |form| %> %>
+    <%# <%= form.radio_button :onoff, 0, {checked: true, id: "timer_on", class: "radio-btn"} %> %>
+    <%# <%= form.label :on, "ON" %> %>
+    <%# <%= form.radio_button :onoff, 1, {id: "timer_off", class: "radio-btn"} %> %>
+    <%# <%= form.label :off, "OFF" %> %>
+    <%# <% end %> %>
+    <%# </div> %>
