@@ -1,37 +1,35 @@
-<body>
-<header>
-<div class="timer-header">
-  <div class="now-time">
-  <div>アラーム</div>
-  <span id="now-time"></span>
-  </div>
-  <div class="new-alarm">
-<%= link_to "+", new_timer_path, class: "new-btn" %>
-  </div>
-</div>
-</header>
-
-<div class="timer-main">
-<div class="set-times">
-  <% @timer.each do |timer| %>
-    <div class="set-time<%=  timer.id %>"
-      value=<%= timer.time.strftime("%H:%M") %>
-    >
-    <%= timer.name %>
-    <%= timer.time.strftime("%H:%M") %>
-
+<div class="wrapper">
+  <header>
+  <div class="timer-header">
+    <div class="now-time">
+      <div>アラーム</div>
+      <span id="now-time"></span>
     </div>
+    <div class="new-alarm">
+      <%= link_to "+", new_timer_path, class: "new-btn" %>
+    </div>
+  </div>
+  </header>
 
-  <% end %>
-</div>
-</div>
-</body>
+  <div class="timer-main">
+    <div class="set-times">
+      <% @timer.each do |timer| %>
+        <div class="set-time<%=  timer.id %>"
+          value=<%= timer.time.strftime("%H:%M") %>
+        >
+          <%= timer.time.strftime("%H:%M") %>
+          <%= link_to "#{timer.name}", edit_timer_path(timer.id), method: :get %>
+          <%= link_to '削除', timer_path(timer.id), method: :delete %>
+          <span class="switch">
+            <label class="switch3__label">
+              <input type="checkbox" class="switch3__input"/>
+              <span class="switch3__content"></span>
+              <span class="switch3__circle"></span>
+            </label>
+          </span>
 
-    <%# <div class="io-radio"> %>
-    <%# <%= form_with(model: timer, local: true) do |form| %> %>
-    <%# <%= form.radio_button :onoff, 0, {checked: true, id: "timer_on", class: "radio-btn"} %> %>
-    <%# <%= form.label :on, "ON" %> %>
-    <%# <%= form.radio_button :onoff, 1, {id: "timer_off", class: "radio-btn"} %> %>
-    <%# <%= form.label :off, "OFF" %> %>
-    <%# <% end %> %>
-    <%# </div> %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

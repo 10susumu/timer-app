@@ -1,4 +1,6 @@
 class TimerController < ApplicationController
+  attr_accessor :hour, :minutes
+
   def index
     @timer = Timer.all
   end
@@ -8,18 +10,29 @@ class TimerController < ApplicationController
   def create
     @timer = Timer.new(timer_params)
     if @timer.save
-      binding.pry
       redirect_to root_path
     else
       render :new
     end
+  end
+  
+  def destroy
+    timer = Timer.find(params[:id])
+    timer.destroy
+    redirect_to root_path
+  end
+
+  def edit
+    @timer = Timer.find(params[:id])
+  end
+  def update
+    @timer = Timer.find(params[:id])
+    @timer.update(timer_params)
+    redirect_to root_path
   end
 
   def timer_params
     params.require(:timer).permit(:name, :wday_id, :onoff, :sound_id, :time, :hour, :minutes)
   end
 
-  def set_time
-    self.time =[@hour, @minutes].join(":")
-  end
 end

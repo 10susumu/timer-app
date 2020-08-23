@@ -3,21 +3,13 @@ class Timer < ApplicationRecord
   before_validation :set_time
 
   with_options presence: true do
-    validates :name
-    validates :time, format: { with: //}
-    validates :hour
-    validates :minutes
+    validates :name, length: { maximum: 16 }
+    validates :time
+    validates :hour, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 23 }
+    validates :minutes, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 59 }
     validates :wday_id
     validates :onoff
     validates :sound_id
-  end
-
-  def hour
-    @hour
-  end
-
-  def minutes
-    @minutes
   end
 
   def set_time
