@@ -141,3 +141,17 @@ a, a:link, a:visited, a:hover, a:active {
 
 .switch3__input:checked ~ .switch3__content:after {
 	background-color: rgba(0,150,136,.5);
+}
+
+.btn a {
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  display: block;
+  background: #999;
+  border-radius: 5px;
+  border-bottom: 4px solid #666;
+  color: #FFF;
+  margin: 0 auto;
+}

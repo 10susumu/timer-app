@@ -7,19 +7,18 @@ const timer = () => {
   const nowTime = new Date();
   const nowHour = WDig(nowTime.getHours());
   const nowMin = WDig(nowTime.getMinutes());
-  const nowSec = WDig(nowTime.getSeconds());
-  const msg = nowHour + ":" + nowMin + ":" + nowSec;
   const hhmm = nowHour + ":" + nowMin;
-  document.getElementById("now-time").innerHTML = msg;
+  document.getElementById("now-time").innerHTML = hhmm;
   
   const forms = document.getElementsByClassName("set-times");
-  const maxnum = forms.item(0).childElementCount + 1;
-  console.log(maxnum)
-  for (let i = 1; i < maxnum; i++){
+  const maxnum = forms.item(0).childElementCount - 1;
+  const firstnum = forms.item(0).children.item(0).getAttribute("id")
+  const lastnum = forms.item(0).children.item(maxnum).getAttribute("id")
+  for (let i = firstnum; i <= (lastnum); i++){
     const form = document.getElementsByClassName("set-time"+i);
-    console.log(form.item(0).getAttribute("value"));
     if (form.item(0).getAttribute("value") == hhmm ){
       alert("じかんですよ");
+    } else {
     }
   }
 }

@@ -14,8 +14,9 @@
   <div class="timer-main">
     <div class="set-times">
       <% @timer.each do |timer| %>
-        <div class="set-time<%=  timer.id %>"
-          value=<%= timer.time.strftime("%H:%M") %>
+        <div class="set-time<%= timer.id %>"
+          value = <%= timer.time.strftime("%H:%M") %>
+          id= <%= timer.id %>
         >
           <%= timer.time.strftime("%H:%M") %>
           <%= link_to "#{timer.name}", edit_timer_path(timer.id), method: :get %>
@@ -32,4 +33,19 @@
       <% end %>
     </div>
   </div>
+
+ 
+<%# <%= image_tag "5E8BD3_Blue.png"%> %>
+<%# <%= audio_tag "alarm.mp3", id:"sound-file"%> %>
+<%# <%= audio_tag("alarm.mp3",id:"audio") %> %>
+
+<p class="btn"><a onClick="sound()">クリック</a></p>
+ 
+<audio id="sound" preload="auto">
+    <source src="http://idotdesign.net/wp-content/themes/idotdesign/sound/sound.mp3" type="audio/mp3">
+    <source src="http://idotdesign.net/wp-content/themes/idotdesign/sound/sound.wav" type="audio/wav">
+</audio>
+
+
+
 </div>
