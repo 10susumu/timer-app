@@ -17,7 +17,7 @@ const timer = () => {
   for (let i = firstnum; i <= (lastnum); i++){
     const form = document.getElementsByClassName("set-time"+i);
     if (form.item(0).getAttribute("value") == hhmm ){
-      alert("じかんですよ");
+      document.getElementById( 'sound-file' ).play() ;
     } else {
     }
   }
@@ -25,5 +25,5 @@ const timer = () => {
     
 
 
-setInterval(timer, 10000)
+setInterval(timer, 30000)
 window.addEventListener("load", timer);
