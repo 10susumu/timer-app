@@ -10,7 +10,6 @@ require("channels")
 require('jquery')
 require("../time")
 require("../sound")
-require("audiojs")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
