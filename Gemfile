@@ -59,3 +59,7 @@ gem 'audiojs-rails'
 gem 'bootstrap', '~> 5.0.0.alpha1'
 gem 'jquery-rails'
 gem 'pry-rails'
+
+group :production do
+  gem 'rails_12factor'
+end
