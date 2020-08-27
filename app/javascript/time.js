@@ -13,19 +13,14 @@ const timer = () => {
   const forms = document.getElementsByClassName("set-times");
   const maxnum = forms.item(0).childElementCount;
   
-  
-  
   for (let i = 0; i < maxnum; i++){
     const form = forms.item(0).children.item(i).getAttribute("value");
-    console.log(form)
       if (form == hhmm ){
         document.getElementById( 'sound-file' ).play() ;
       } else {
     }
   }
 }
-    
-
 
 setInterval(timer, 30000)
 window.addEventListener("load", timer);
