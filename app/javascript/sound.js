@@ -1,15 +1,10 @@
-  (function (window, $) {
-    'use strict';
-    
-    $.fn.useSound = function (_event, _id) {
-      var se = $(_id);
-      this.on(_event, function(){
-        se[0].currentTime = 0;
-        se[0].play();
-      });
-      return this;
-    };
-    
-  })(this, this.jQuery);
-  
-  $('.btn a').useSound('mousedown touchstart', '#sound');
+window.addEventListener('load',() =>{
+  document.getElementById('target').addEventListener('click', () => {
+    if (document.getElementById('target').style.background === 'pink'){
+      document.getElementById('target').style.background = 'lightblue';
+    }else{
+      document.getElementById('target').style.background = 'pink';
+    }
+    document.getElementById( 'sound-file' ).play() ;
+  });
+});
