@@ -16,9 +16,11 @@ const timer = () => {
   const lastnum = forms.item(0).children.item(maxnum).getAttribute("id")
   for (let i = firstnum; i <= (lastnum); i++){
     const form = document.getElementsByClassName("set-time"+i);
-    if (form.item(0).getAttribute("value") == hhmm ){
-      document.getElementById( 'sound-file' ).play() ;
-    } else {
+    if (form.item(0).getAttribute("value") != null ){
+      if (form.item(0).getAttribute("value") == hhmm ){
+        document.getElementById( 'sound-file' ).play() ;
+      } else {
+      }
     }
   }
 }
